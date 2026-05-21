@@ -77,11 +77,7 @@
         var marker3 = L.marker([-6.8390, 107.610]).addTo(map);
         marker3.bindPopup('<b>Taman Hutan Raya Ir. H. Djuanda</b><br>Area hijau di kawasan Bandung');
 // Opsional: Tambahkan marker ke layer control
-var overlayMaps = {
-    "Marker Utama": marker,
-    "Kebun Binatang Bandung": marker1,
-    "Saung Angklung Udjo": marker2,
-    "Taman Hutan Raya Ir. H. Djuanda": marker3
+var overlayMaps = {"Marker Utama": marker,"Kebun Binatang Bandung": marker1,"Saung Angklung Udjo": marker2,"Taman Hutan Raya Ir. H. Djuanda": marker3
 };         
         
         // ==========================================
@@ -101,23 +97,10 @@ var overlayMaps = {
             position: 'bottomright'
         }).addTo(map);
         
-        // ==========================================
-        // 4. TAMBAHKAN MARKER CONTOH
-        // ==========================================
-        var marker = L.marker([-6.9146, 107.6098]).addTo(map);
-        marker.bindPopup('<b>Gedung Sate</b><br>Bandung, Jawa Barat');
-        
-        // ==========================================
-        // 5. TAMBAHKAN LAYER CONTROL
-        // ==========================================
         var baseMaps = {
             "Street Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
         };
-        
-        var overlayMaps = {
-            "Marker": marker
-        };
-        
+
         L.control.layers(baseMaps, overlayMaps).addTo(map);
         
         console.log('Peta berhasil dimuat!');
