@@ -72,15 +72,21 @@
         );
         // Basemap Google Streets
         var googleStreet = L.tileLayer(
-            'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+            'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}',
             {attribution: '&copy; Google',maxZoom: 20}
         );
+        var googleSatellite = L.tileLayer(
+            'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+            {attribution: '&copy; Google Maps',maxZoom: 20
+            }
+        );
         // Tambahkan default basemap ke map
-        osm.addTo(map);
+        googleSatellite.addTo(map);
         // Kontrol layer
         var baseMaps = {
             "OpenStreetMap": osm,
             "Google Street": googleStreet
+            "Google Satellite": googleSatellite
         };
         // ==========================================
         // TAMBAHAN 3 MARKER BARU (SOAL 5)
