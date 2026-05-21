@@ -64,6 +64,9 @@
         var map = L.map('map').setView([-6.9146, 107.6098], 13);
         // KOORDINAT: Gedung Sate, Bandung
         // ZOOM: 13 (0 = dunia, 18 = sangat dekat)
+        // ==========================================
+        // 2. BASEMAP (KOORDINAT & ZOOM)
+        // ==========================================
         // Basemap OpenStreetMap
         var osm = L.tileLayer(
             'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -86,7 +89,7 @@
         // Kontrol layer
         var baseMaps = {
             "OpenStreetMap": osm,
-            "Google Street": googleStreet
+            "Google Street": googleStreet,
             "Google Satellite": googleSatellite
         };
         // ==========================================
