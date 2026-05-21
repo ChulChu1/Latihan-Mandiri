@@ -82,26 +82,32 @@
             "OpenStreetMap": osm,
             "Google Street": googleStreet
         };
-        L.control.layers(baseMaps).addTo(map);
         // ==========================================
         // TAMBAHAN 3 MARKER BARU (SOAL 5)
         // ==========================================
-        // Marker 1: Kebun Binatang Bandung
-        var marker1 = L.marker([-6.9000, 107.6185]).addTo(map);
-        marker1.bindPopup('<b>Kebun Binatang Bandung</b><br>Tempat wisata keluarga di Bandung');
-        // Marker 2: Saung Angklung Udjo
-        var marker2 = L.marker([-6.8918, 107.6670]).addTo(map);
-        marker2.bindPopup('<b>Saung Angklung Udjo</b><br>Tempat pertunjukan budaya tradisional Sunda');
-        // Marker 3: Taman Hutan Raya Ir. H. Djuanda
-        var marker3 = L.marker([-6.8390, 107.610]).addTo(map);
-        marker3.bindPopup('<b>Taman Hutan Raya Ir. H. Djuanda</b><br>Area hijau di kawasan Bandung');
+        // Marker utama
+        var marker = L.marker([-6.9147, 107.6098])
+            .bindPopup('<b>Kota Bandung</b><br>Pusat Kota Bandung');
+        // Marker Kebun Binatang Bandung
+        var marker1 = L.marker([-6.9000, 107.6185])
+            .bindPopup('<b>Kebun Binatang Bandung</b><br>Tempat wisata keluarga di Bandung');
+        // Marker Saung Angklung Udjo
+        var marker2 = L.marker([-6.8918, 107.6670])
+            .bindPopup('<b>Saung Angklung Udjo</b><br>Tempat pertunjukan budaya tradisional Sunda');
+        // Marker Tahura
+        var marker3 = L.marker([-6.8390, 107.6100])
+            .bindPopup('<b>Taman Hutan Raya Ir. H. Djuanda</b><br>Area hijau di kawasan Bandung');
         // Opsional: Tambahkan marker ke layer control
-        var overlayMaps = {"Marker Utama": marker,
-                   "Kebun Binatang Bandung": marker1,
-                   "Saung Angklung Udjo": marker2,
-                   "Taman Hutan Raya Ir. H. Djuanda": marker3
+        var overlayMaps = {
+            "Marker Utama": marker,
+            "Kebun Binatang Bandung": marker1,
+            "Saung Angklung Udjo": marker2,
+            "Tahura Djuanda": marker3
         };
-        
+
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+        marker.addTo(map);
         // ==========================================
         // 3. TAMBAHKAN SCALE BAR (SKALA PETA)
         // ==========================================
