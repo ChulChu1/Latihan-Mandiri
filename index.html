@@ -64,6 +64,10 @@
         var map = L.map('map').setView([-6.9146, 107.6098], 13);
         // KOORDINAT: Gedung Sate, Bandung
         // ZOOM: 13 (0 = dunia, 18 = sangat dekat)
+        var baseMaps = {"Street Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
+                        "Google Map": L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}',
+                                                  {attribution: '&copy; <a href="https://www.googlemaps.org/copyright">Google Maps</a> contributors',maxZoom: 19})
+                        };
         // ==========================================
         // TAMBAHAN 3 MARKER BARU (SOAL 5)
         // ==========================================
@@ -76,17 +80,12 @@
         // Marker 3: Taman Hutan Raya Ir. H. Djuanda
         var marker3 = L.marker([-6.8390, 107.610]).addTo(map);
         marker3.bindPopup('<b>Taman Hutan Raya Ir. H. Djuanda</b><br>Area hijau di kawasan Bandung');
-// Opsional: Tambahkan marker ke layer control
-var overlayMaps = {"Marker Utama": marker,"Kebun Binatang Bandung": marker1,"Saung Angklung Udjo": marker2,"Taman Hutan Raya Ir. H. Djuanda": marker3
-};         
-        
-        // ==========================================
-        // 2. TAMBAHKAN BASEMAP (PETA DASAR)
-        // ==========================================
-        L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
-            attribution: '&copy; <a href="https://www.googlemaps.org/copyright">Google Maps</a> contributors',
-            maxZoom: 19
-        }).addTo(map);
+        // Opsional: Tambahkan marker ke layer control
+        var overlayMaps = {"Marker Utama": marker,
+                   "Kebun Binatang Bandung": marker1,
+                   "Saung Angklung Udjo": marker2,
+                   "Taman Hutan Raya Ir. H. Djuanda": marker3
+        };
         
         // ==========================================
         // 3. TAMBAHKAN SCALE BAR (SKALA PETA)
@@ -96,10 +95,6 @@ var overlayMaps = {"Marker Utama": marker,"Kebun Binatang Bandung": marker1,"Sau
             imperial: false,
             position: 'bottomright'
         }).addTo(map);
-        
-        var baseMaps = {
-            "Street Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-        };
 
         L.control.layers(baseMaps, overlayMaps).addTo(map);
         
