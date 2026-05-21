@@ -64,10 +64,25 @@
         var map = L.map('map').setView([-6.9146, 107.6098], 13);
         // KOORDINAT: Gedung Sate, Bandung
         // ZOOM: 13 (0 = dunia, 18 = sangat dekat)
-        var baseMaps = {"Street Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
-                        "Google Map": L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}',
-                                                  {attribution: '&copy; <a href="https://www.googlemaps.org/copyright">Google Maps</a> contributors',maxZoom: 19})
-                       .addTo(map)};
+        // Basemap OpenStreetMap
+        var osm = L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {attribution: '&copy; OpenStreetMap contributors',maxZoom: 19
+            }
+        );
+        // Basemap Google Streets
+        var googleStreet = L.tileLayer(
+            'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}',
+            {attribution: '&copy; Google',maxZoom: 20}
+        );
+        // Tambahkan default basemap ke map
+        osm.addTo(map);
+        // Kontrol layer
+        var baseMaps = {
+            "OpenStreetMap": osm,
+            "Google Street": googleStreet
+        };
+        L.control.layers(baseMaps).addTo(map);
         // ==========================================
         // TAMBAHAN 3 MARKER BARU (SOAL 5)
         // ==========================================
@@ -96,8 +111,6 @@
             position: 'bottomright'
         }).addTo(map);
 
-        L.control.layers(baseMaps, overlayMaps).addTo(map);
-        
         console.log('Peta berhasil dimuat!');
     </script>
 </body>
