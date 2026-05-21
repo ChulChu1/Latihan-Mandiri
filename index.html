@@ -75,13 +75,14 @@
             'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}',
             {attribution: '&copy; Google',maxZoom: 20}
         );
+        // Basemap Google Satellite
         var googleSatellite = L.tileLayer(
             'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
             {attribution: '&copy; Google Maps',maxZoom: 20
             }
         );
         // Tambahkan default basemap ke map
-        googleSatellite.addTo(map);
+        osm.addTo(map);
         // Kontrol layer
         var baseMaps = {
             "OpenStreetMap": osm,
